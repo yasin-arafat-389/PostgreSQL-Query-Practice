@@ -83,5 +83,15 @@ WHERE student_id = (
 );
 
 
+-- Delete all courses that have no students enrolled.
+DELETE FROM courses
+WHERE course_id NOT IN (
+  SELECT DISTINCT course_id
+  FROM enrollment
+);
+
+
+
+
 
 
